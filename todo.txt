@@ -1,0 +1,14 @@
+mettre en relation le visuel et le son
+#Viz - flash blanc
+#Son - Threshold
+#Controle a distance (remote thresh)
+Son Click de l'aguille
+Le rendre de plus en plus intense ?
+#viz Moteur Visuel
+Rafraichissement du visuel asservie au clap
+Lumière
+Son,  sans fils
+
+
+désactiver mise en veille
+Auto boot hdmi?

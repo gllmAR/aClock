@@ -1,0 +1,123 @@
+#N canvas 14 136 520 492 10;
+#X obj 99 382 spigot;
+#X obj 17 382 spigot;
+#X msg 206 194 mask 4 0.7;
+#X obj 66 383 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X obj 148 383 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1
+1;
+#X obj 99 412 print cooked;
+#X obj 17 412 print raw;
+#X text 259 102 Minimum "velocity" to output (quieter notes are ignored.)
+;
+#X text 303 155 number of frames over which to measure growth;
+#X obj 17 320 bonk~;
+#X floatatom -22 11 5 0 0 1 /#1/highTreshold /#1/highTreshold -, f
+5;
+#X msg -23 160 thresh \$1 \$2;
+#X obj -23 130 pack f f;
+#X floatatom 21 37 5 0 0 1 /#1/fallThreshold /#1/fallThreshold -,
+f 5;
+#X obj -22 452 spigot;
+#X obj 29 450 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
+;
+#X obj -23 97 -;
+#X obj 22 62 t b f;
+#X obj -23 64 t f f;
+#X obj 261 389 outlet;
+#X obj 14 272 inlet~;
+#X msg 188 104 minvel \$1;
+#X msg 190 155 attack-frames \$1;
+#X floatatom 190 131 5 0 0 1 /#1/attack-frames /#1/attack-frames -
+, f 5;
+#X floatatom 188 78 5 0 0 1 /#1/minVel /#1/minVel -, f 5;
+#X obj -24 220 t a;
+#X obj 98 346 t a a;
+#X obj -22 477 print param;
+#N canvas 660 173 579 589 templates 0;
+#X msg 76 197 learn 0;
+#X msg 95 230 forget;
+#X msg 115 271 write templates.txt;
+#X msg 127 308 read templates.txt;
+#X msg 55 86 debounce 0;
+#X msg 65 125 learn 10;
+#X obj 62 431 outlet;
+#X text 144 121 Forget all templates and start learning new ones. The
+argument gives the number of times you will hit each instrument (10
+recommended.) Turn on the output volume above for audible feedback
+as you train Bonk. "Learn 0" exits learn mode.;
+#X text 174 220 Forget the last template. In Learn mode \, use "forget"
+to erase and record over a template.;
+#X text 259 267 Write templates to a file in text-editable format.
+;
+#X text 272 304 Read templates from a file.;
+#X text 136 83 Minimum time (msec) between attacks in learn mode;
+#X connect 0 0 6 0;
+#X connect 1 0 6 0;
+#X connect 2 0 6 0;
+#X connect 3 0 6 0;
+#X connect 4 0 6 0;
+#X connect 5 0 6 0;
+#X restore 97 270 pd templates;
+#X text 202 271 more messages for managing templates;
+#N canvas 0 23 643 426 more 0;
+#X msg 30 91 bang;
+#X msg 29 155 print;
+#X text 74 84 Poll the current spectrum via "raw" outlet \, You can
+set a very high threshold if you don't want attacks mixed in.;
+#X text 107 129 turn debugging on or off.;
+#X msg 29 182 print 1;
+#X text 97 184 print out filterbank settings;
+#X text 94 26 Turn spew mode on/off;
+#X text 143 52 experimental: use alternative loudness units;
+#X text 98 154 Print out settings and templates.;
+#X obj 10 223 outlet;
+#X obj -3 23 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X msg 20 24 spew \$1;
+#X obj -1 54 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0 1
+;
+#X obj -4 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X msg 29 129 debug \$1;
+#X msg 29 53 useloudness \$1;
+#X connect 0 0 9 0;
+#X connect 1 0 9 0;
+#X connect 4 0 9 0;
+#X connect 10 0 11 0;
+#X connect 11 0 9 0;
+#X connect 12 0 15 0;
+#X connect 13 0 14 0;
+#X connect 14 0 9 0;
+#X connect 15 0 9 0;
+#X restore 152 304 pd more;
+#X obj 261 356 route 0;
+#X connect 0 0 5 0;
+#X connect 1 0 6 0;
+#X connect 2 0 25 0;
+#X connect 3 0 1 1;
+#X connect 4 0 0 1;
+#X connect 9 0 1 0;
+#X connect 9 1 26 0;
+#X connect 10 0 18 0;
+#X connect 11 0 25 0;
+#X connect 12 0 11 0;
+#X connect 13 0 17 0;
+#X connect 14 0 27 0;
+#X connect 15 0 14 1;
+#X connect 16 0 12 0;
+#X connect 17 0 16 0;
+#X connect 17 1 16 1;
+#X connect 18 0 16 0;
+#X connect 18 1 12 1;
+#X connect 20 0 9 0;
+#X connect 21 0 25 0;
+#X connect 22 0 25 0;
+#X connect 23 0 22 0;
+#X connect 24 0 21 0;
+#X connect 25 0 9 0;
+#X connect 25 0 14 0;
+#X connect 26 0 0 0;
+#X connect 26 1 31 0;
+#X connect 28 0 9 0;
+#X connect 31 0 19 0;

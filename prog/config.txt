@@ -1,0 +1,4 @@
+/bonk/highTreshold 100;
+/bonk/fallThreshold 12;
+/bonk/minVel 50;
+/bonk/attack-frames 11;
