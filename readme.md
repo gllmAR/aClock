@@ -2,6 +2,24 @@
 ##  Douce procrastination
 
 
+## Installation
+
+####Logiciel : pure data
+* installer pure data vanille : depuis /pd_vanilla vers applications
+* Démarrer pure data
+  * aller dans le menu media -> audio settings
+  * Verifier que l'input device et que l'output device correspond au cartes de sons adéquate et apply : fermer la fenetre audio settings
+
+####Logiciel : Processing
+* installer processing depuis https://processing.org/download/?processing vers applications
+
+* dans processing installer les librairies requises
+menu -> sketch -> import Library.. -> Add Library
+  * ajouter oscp5 et syphon
+
+
+
+
 ### Synopsis :
 L’interprète tourne autour d'une zone démarqué au centre de la scène
 (carrée LUMIÈRE en douche).  Sous cette zone,  un microphone.

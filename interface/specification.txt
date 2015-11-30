@@ -1,0 +1,20 @@
+CTL que je veux
+
+
+PD vers -> interface--------
+
+MIN : SEC --- 2 labels : temps dansé écoulé 
+JJ:HH:MM ---- 3 labels : Temps actuel  
+
+
+ 
+
+
+interface ---> vers PD----
+
+[toggle] reset Temps (quand 1 reset le temps)
+[bang] start temps (ne peux pas être restart tant que le temps n'est pas reset
+
+[slide] ecoule temps Objectif
+[slide] ecoule temps Subjectif
+

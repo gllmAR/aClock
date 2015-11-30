@@ -2,3 +2,8 @@
 /bonk/fallThreshold 12;
 /bonk/minVel 50;
 /bonk/attack-frames 11;
+clickAbsolu 604800;
+deltaObjectif 1;
+deltaSubjectif 30;
+polyVolume 1;
+clickAbsolu 604800;

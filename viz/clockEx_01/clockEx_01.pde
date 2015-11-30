@@ -7,11 +7,16 @@ float clockDiameter;
 int monTemps;
 String journee = "Nada";String textMe = "Nada2";
 int mil;
-float opacity;
+float opacity = 1.;
+float trail = 0.;
 
 float s = 0;
 float m = 0;
 float h = 0;
+
+import codeanticode.syphon.*;
+
+SyphonServer server;
 
 
 import oscP5.*;
@@ -20,18 +25,22 @@ import netP5.*;
 OscP5 oscP5;
 NetAddress myRemoteLocation;
 
+void settings() {
+  size(400,400, P3D);
+  PJOGL.profile=1;
+}
 
 void setup() {
-  fullScreen(P2D);
-  //size(640, 360, P3D);
-  oscP5 = new OscP5(this,7777);
+  server = new SyphonServer(this, "Processing Syphon");
+  oscP5 = new OscP5(this,7776);
+  myRemoteLocation = new NetAddress("127.0.0.1",7778);
   
 
   
   radius = min(width, height) / 2;
-  secondsRadius = radius * 0.72;
-  minutesRadius = radius * 0.60;
-  hoursRadius = radius * 0.50;
+  secondsRadius = radius * 0.9;
+  minutesRadius = radius * 0.80;
+  hoursRadius = radius * 0.70;
   clockDiameter = radius * 1.8;
   
   cx = width / 2;
@@ -39,7 +48,14 @@ void setup() {
   
   monTemps = 7*24*60*60;
 
-background(0);
+  background(0);
+   
+    
+  OscMessage myMessage = new OscMessage("/processing");
+  myMessage.add("ready"); /* add an int to the osc message */
+  oscP5.send(myMessage, myRemoteLocation); 
+  
+
 }
 
 void update(){
@@ -83,23 +99,24 @@ s = map(maSeconde, 0, 60, 0, TWO_PI) - HALF_PI;
 m = map(maMinute, 0, 60, 0, TWO_PI) - HALF_PI; 
 h = map(monHeure%12, 0, 24, 0, TWO_PI * 2) - HALF_PI;
 
+
+
 }
 
 void draw() {
   
   update();
-  
+ 
   noStroke();
-  fill(0, (opacity-.175)*255);
+  fill(0, (1-trail)*255);
   rect(0, 0, width, height);
+
   
    // Draw the clock background
-  fill(0, opacity);
-  ellipse(cx, cy, clockDiameter, clockDiameter);
-  
+
   textSize(radius/10);
   
-  fill(255, opacity*150);
+  fill(255,255,255, (opacity*255));
   textAlign(CENTER);
   text(journee, width/2, height/2.5);  
   text(textMe, width/2, height/1.5); 
@@ -109,7 +126,8 @@ void draw() {
   
   // Draw the hands of the clock
   stroke(255, (opacity*255));
-  
+
+// secondes 
 //  strokeWeight(1);
 //  line(cx, cy, cx + cos(s) * secondsRadius, cy + sin(s) * secondsRadius);
   
@@ -129,15 +147,29 @@ void draw() {
   }
   endShape();
 
+  server.sendScreen();
 }
+
+
 
 
 /* incoming osc message are forwarded to the oscEvent method. */
 void oscEvent(OscMessage theOscMessage) {
   if(theOscMessage.checkAddrPattern("/temps")==true) {
-  if(theOscMessage.checkTypetag("ff")) {
+  if(theOscMessage.checkTypetag("f")) {
   monTemps = int(theOscMessage.get(0).floatValue());  // get the first osc argument
-  opacity = theOscMessage.get(1).floatValue();  // get the 2 osc argument
     }
   }
+  if(theOscMessage.checkAddrPattern("/opacity")==true) {
+  if(theOscMessage.checkTypetag("f")) {
+  opacity = theOscMessage.get(0).floatValue();  // get the first osc argument
+    }
+  }
+  
+    if(theOscMessage.checkAddrPattern("/trail")==true) {
+  if(theOscMessage.checkTypetag("f")) {
+  trail = theOscMessage.get(0).floatValue();  // get the first osc argument
+    }
+  }
+
 }
