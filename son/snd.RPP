@@ -1,4 +1,4 @@
-<REAPER_PROJECT 0.1 "5.0/OSX64" 1448856578
+<REAPER_PROJECT 0.1 "5.0/OSX64" 1448864703
   RIPPLE 0
   GROUPOVERRIDE 0 0 0
   AUTOXFADE 1
@@ -13,7 +13,7 @@
   TIMEMODE 1 5 -1 30 0
   VIDEO_CONFIG 0 0 256
   PANMODE 3
-  CURSOR 46
+  CURSOR 10
   ZOOM 14.33108257297752 0 0
   VZOOMEX 6
   USE_REC_CFG 0
@@ -215,6 +215,16 @@
       <SOURCE WAVE
         FILE "27081__daveincamas__clockticksonechime.wav"
       >
+      TAKE SEL
+      NAME "27081__daveincamas__clockticksonechime render 003.wav"
+      TAKEVOLPAN 0 1 -1
+      SOFFS 0
+      PLAYRATE 1 1 0 -1 0 0.0025
+      CHANMODE 0
+      GUID {9559C0FC-2E09-784B-9F73-36415F16DB76}
+      <SOURCE WAVE
+        FILE "27081__daveincamas__clockticksonechime render 003.wav"
+      >
     >
     <ITEM
       POSITION 45.5
@@ -225,7 +235,7 @@
       FADEIN 1 0 0 1 0 0
       FADEOUT 1 0 0 1 0 0
       MUTE 0
-      SEL 1
+      SEL 0
       IGUID {B125B6D4-E4C0-0241-B26F-E7DAC4D1A77B}
       IID 1
       NAME 27081__daveincamas__clockticksonechime.wav
@@ -238,14 +248,14 @@
         FILE "27081__daveincamas__clockticksonechime.wav"
       >
       TAKE SEL
-      NAME "27081__daveincamas__clockticksonechime render 001.wav"
+      NAME "27081__daveincamas__clockticksonechime render 004.wav"
       TAKEVOLPAN 0 1 -1
       SOFFS 0
       PLAYRATE 1 1 0 -1 0 0.0025
       CHANMODE 0
-      GUID {06C6EC7D-C79D-2B47-977E-9931F180EC29}
+      GUID {C3A70BB9-F84D-1C46-BF3B-93F82FEB072A}
       <SOURCE WAVE
-        FILE "27081__daveincamas__clockticksonechime render 001.wav"
+        FILE "27081__daveincamas__clockticksonechime render 004.wav"
       >
     >
   >

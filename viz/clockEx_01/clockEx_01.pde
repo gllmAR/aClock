@@ -14,10 +14,6 @@ float s = 0;
 float m = 0;
 float h = 0;
 
-import codeanticode.syphon.*;
-
-SyphonServer server;
-
 
 import oscP5.*;
 import netP5.*;
@@ -26,12 +22,11 @@ OscP5 oscP5;
 NetAddress myRemoteLocation;
 
 void settings() {
-  size(400,400, P3D);
-  PJOGL.profile=1;
+   fullScreen();
+  //size(400,400);
 }
 
 void setup() {
-  server = new SyphonServer(this, "Processing Syphon");
   oscP5 = new OscP5(this,7776);
   myRemoteLocation = new NetAddress("127.0.0.1",7778);
   
@@ -147,7 +142,6 @@ void draw() {
   }
   endShape();
 
-  server.sendScreen();
 }
 
 
@@ -171,5 +165,7 @@ void oscEvent(OscMessage theOscMessage) {
   trail = theOscMessage.get(0).floatValue();  // get the first osc argument
     }
   }
+
+
 
 }
