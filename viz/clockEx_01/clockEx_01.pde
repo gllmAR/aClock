@@ -22,7 +22,7 @@ OscP5 oscP5;
 NetAddress myRemoteLocation;
 
 void settings() {
-   fullScreen(P2D);
+   fullScreen(P2D, 1);
   //size(400,400);
 }
 
@@ -109,10 +109,10 @@ void draw() {
   
    // Draw the clock background
 
-  textSize(radius/10);
+  textSize(radius/9);
   
-  //fill(255,255,255, (opacity*255));
-  fill(255,255,255);
+  fill(255,255,255, (opacity*255));
+  //fill(255,255,255);
   textAlign(CENTER);
   text(journee, width/2, height/2.5);  
   text(textMe, width/2, height/1.5); 

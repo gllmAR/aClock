@@ -1,9 +1,9 @@
-/bonk/highTreshold 100;
-/bonk/fallThreshold 12;
-/bonk/minVel 50;
-/bonk/attack-frames 11;
+/bonk/highTreshold 75;
+/bonk/fallThreshold 26;
+/bonk/minVel 20;
+/bonk/attack-frames 25;
 clickAbsolu 604800;
 deltaObjectif 1;
-deltaSubjectif 30;
-polyVolume 1;
-clickAbsolu 604800;
+deltaSubjectif 0;
+polyVolume 0.1;
+tickTackVol 0.1;

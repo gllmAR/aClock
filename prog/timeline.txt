@@ -1,5 +1,3 @@
-7 0 0 clickActive 1 tickTack 1 tickTackVol 1 polyVolume 1 chrono 1
-masterOpacity 1 tickTackChime 0;
 6 0 0 tickTackChime 1;
 5 0 0 tickTackChime 1;
 4 0 0 tickTackChime 1;
@@ -7,5 +5,4 @@ masterOpacity 1 tickTackChime 0;
 2 0 0 tickTackChime 1;
 1 0 0 tickTackChime 1;
 0 0 5 tickTackPlayChime 1;
-0 0 0 polyVolume 0 tickTack 0 clickActive 0 chrono 0 tickTackPlayChime
-1 masterOpacity 0;
+0 0 0;

@@ -1,10 +1,10 @@
-#N canvas 40 163 520 492 10;
+#N canvas 266 189 520 492 10;
 #X obj 99 382 spigot;
 #X obj 17 382 spigot;
 #X msg 206 194 mask 4 0.7;
 #X obj 66 383 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
 ;
-#X obj 148 383 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0
+#X obj 148 383 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 1
 1;
 #X obj 99 412 print cooked;
 #X obj 17 412 print raw;
@@ -25,7 +25,7 @@ f 5;
 #X obj 22 62 t b f;
 #X obj -23 64 t f f;
 #X obj 261 389 outlet;
-#X obj 14 272 inlet~;
+#X obj 14 227 inlet~;
 #X msg 188 104 minvel \$1;
 #X msg 190 155 attack-frames \$1;
 #X floatatom 190 131 5 0 0 1 /#1/attack-frames /#1/attack-frames -
@@ -92,6 +92,7 @@ set a very high threshold if you don't want attacks mixed in.;
 #X connect 15 0 9 0;
 #X restore 152 304 pd more;
 #X obj 261 356 route 0;
+#X obj 17 251 hip~ 230;
 #X connect 0 0 5 0;
 #X connect 1 0 6 0;
 #X connect 2 0 25 0;
@@ -110,7 +111,7 @@ set a very high threshold if you don't want attacks mixed in.;
 #X connect 17 1 16 1;
 #X connect 18 0 16 0;
 #X connect 18 1 12 1;
-#X connect 20 0 9 0;
+#X connect 20 0 32 0;
 #X connect 21 0 25 0;
 #X connect 22 0 25 0;
 #X connect 23 0 22 0;
@@ -121,3 +122,4 @@ set a very high threshold if you don't want attacks mixed in.;
 #X connect 26 1 31 0;
 #X connect 28 0 9 0;
 #X connect 31 0 19 0;
+#X connect 32 0 9 0;
